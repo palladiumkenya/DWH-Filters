@@ -10,3 +10,5 @@ cy.get('select[name="County"]').select('Nairobi')
 // asserting the option selected
 .should('have.text', 'Nairobi')
 });
+
+
