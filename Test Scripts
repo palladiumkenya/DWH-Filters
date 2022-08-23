@@ -10,3 +10,77 @@ cy.get('select[name="County"]').select('Nairobi')
 // asserting the option selected
 .should('have.text', 'Nairobi')
 });
+
+describe('DWHTest', function () {
+//test case
+it('Test Case3', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+//selecting a value from static dropdown
+cy.get('select[name="Sub-County"]').select('Kasarani')
+//asserting the option selected
+.should('have.text', 'Kasarani')
+});
+
+describe('DWHTest', function () {
+//test case
+it('Test Case4', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+cy.get('select[name="Facility"]').select('Kasarani Health Centre')
+//asserting the option selected
+.should('have.text', 'Kasarani Health Centre')
+});
+
+describe('DWHTest', function () {
+//test case
+it('Test Case4', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+cy.get('select[name="Partner"]').select('CIHEB')
+//asserting the option selected
+.should('have.text', 'CIHEB')
+});
+
+describe('DWHTest', function () {
+//test case
+it('Test Case5', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+cy.get('select[name="Agency"]').select('CDC')
+//asserting the option selected
+.should('have.text', 'CDC')
+});
+
+describe('DWHTest', function () {
+//test case
+it('Test Case6', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+cy.get('select[name="Gender"]').select('Female')
+//asserting the option selected
+.should('have.text', 'Female')
+});
+
+describe('DWHTest', function () {
+//test case
+it('Test Case7', function (){
+cy.visit("https://data.kenyahmis.org:9000/#/");
+//checking by values
+cy.get('input[type="checkbox"]')
+.check(['Manual Tester','Automation Tester']);
+cy.get('select[name="Age Group"]').select('Under 1')
+//asserting the option selected
+.should('have.text', 'Under 1')
+});
+});
