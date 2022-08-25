@@ -1,0 +1,24 @@
+{
+  "name": "dwh-filters",
+  "version": "1.0.0",
+  "description": "DWH Filters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chesterosoronyas/DWH-Filters.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chesterosoronyas/DWH-Filters/issues"
+  },
+  "homepage": "https://github.com/chesterosoronyas/DWH-Filters#readme",
+  "devDependencies": {
+    "cypress": "^10.6.0",
+    "cypress-xpath": "^2.0.1"
+  }
+}
