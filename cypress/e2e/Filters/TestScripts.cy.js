@@ -1,4 +1,10 @@
+cy.on("uncaught:exception", (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false;
+});
 describe("DWHTest", function () {
+  const dwnascop_url = "https://dwh.nascop.org/#/";
   // test case
   it("Select NAIROBI county and validate its attribute", function () {
     cy.visit("https://dwh.nascop.org/#/");
@@ -12,8 +18,7 @@ describe("DWHTest", function () {
       multiple: true,
     });
 
-
-    cy.xpath('//*[@id="county"]/a').eq(1).should('have.text','NAIROBI');
+    cy.xpath('//*[@id="county"]/a').eq(1).should("have.text", "NAIROBI");
 
     //remove Nairobi
     //cy.xpath('//*[@id="county"]/a/i').click({force:true,multiple:true})
@@ -23,6 +28,7 @@ describe("DWHTest", function () {
     // .should("have.text", "Nairobi");
   });
 
+<<<<<<< HEAD
 
   it("Select KASARANI sub-county and validate its attribute", function () {
 
@@ -236,6 +242,48 @@ describe("DWHTest", function () {
 
     // .should("have.text", 20-24);
 
+=======
+  // test case
+
+  it("Validate the Current on ART from the model", function () {
+    cy.visit(dwnascop_url);
+    cy.sqlServer(
+      `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1`
+    ).then((result) => {
+      cy.log(result);
+      cy.xpath(
+        '//*[@id="root"]/div/div[2]/main/div[2]/div/div[4]/div[1]/div/div/p'
+      ).should("have.text", result);
+    });
+    //.should("eq", "1089199");
+  });
+
+  it("Validate the Eligible of VL from the model", function () {
+    cy.visit(dwnascop_url);
+    cy.sqlServer(
+      `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1 and EligibleVL=1`
+    ).then((result) => {
+      cy.log(result);
+      cy.xpath(
+        '//*[@id="root"]/div/div[2]/main/div[2]/div/div[4]/div[2]/div/div/p'
+      ).should("have.text", result.toString());
+    });
+    //.should("eq", "1089199");
+  });
+
+  it("Validate the VALID viralload from the model", function () {
+    cy.visit(dwnascop_url);
+    cy.sqlServer(
+      `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1 and EligibleVL=1`
+    ).then((result) => {
+      cy.log(result);
+      cy.xpath(
+        '//*[@id="root"]/div/div[2]/main/div[2]/div/div[4]/div[2]/div/div/p'
+      ).should("have.text", result);
+    });
+    //.should("eq", "1089199");
+  });
+>>>>>>> 27a0a77 (Adding the validation and gitignore files)
 });
 });
 
