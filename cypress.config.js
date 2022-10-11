@@ -10,14 +10,16 @@ module.exports = defineConfig({
     },
     env: {
       db: {
-        userName: "",
-        password: "",
-        server: "",
+        userName: "sa",
+        password: "home",
+        server: "127.0.0.1",
         options: {
-          database: "",
+          database: "PortalDev",
           encrypt: true,
           rowCollectionOnRequestCompletion: true,
-          port: 55557, // Default Port
+          port: 56230,
+          timeout:70000
+          // Default Port
         },
       },
     },
