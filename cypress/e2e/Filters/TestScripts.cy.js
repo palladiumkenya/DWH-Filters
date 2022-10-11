@@ -237,5 +237,5 @@ describe("DWHTest", function () {
     // .should("have.text", 20-24);
 
 });
-  });
+});
 
