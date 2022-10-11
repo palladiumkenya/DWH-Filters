@@ -211,20 +211,8 @@ describe("DWHTest", function () {
       multiple: true,
     });
   });
-  it("Validate the Current on ART from the model", function () {
-    //cy.visit(dwnascop_url);
-
-    cy.sqlServer(
-      `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1`
-    ).then((result) => {
-      cy.log(result);
-
-      cy.xpath(
-        '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[1]/div/div/p'
-      ).should("have.text", result);
-    });
-    //.should("eq", "1089199");
-  });
+ 
+});
 
   it("Validate the Eligible of VL from the model", function () {
     cy.sqlServer(
