@@ -1,13 +1,13 @@
 describe("DWHCT", function () {
     // test case
-    it("Select KISUMU county and validate its attribute", function () {
+    it("Select NAIROBI county and validate its attribute", function () {
       cy.visit("https://dwh.nascop.org/#/hiv-testing/uptake");
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
   
       //selects NAIROBI
-      cy.xpath('//*[@id="county"]/div[2]/div[17]/span').click({
+      cy.xpath('//*[@id="county"]/div[2]/div[29]/span').click({
         force: true,
         multiple: true,
       });
@@ -15,7 +15,7 @@ describe("DWHCT", function () {
        //.contains('Nairobi').click()
        //cy.get().contains('have text'Nairobi')
   
-      cy.xpath('//*[@id="county"]/a').eq(1).should('have.text','KISUMU');
+      cy.xpath('//*[@id="county"]/a').eq(1).should('have.text','NAIROBI');
   
       //remove Nairobi
       //cy.xpath('//*[@id="county"]/a/i').click({force:true,multiple:true})
@@ -35,7 +35,7 @@ describe("DWHCT", function () {
       //selects KASARANI
       //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #county').should('include.text', 'Kasarani');
   
-      it("Select KISUMU CENTRAL sub-county and validate its attribute", function () {
+      it("Select LANGATA sub-county and validate its attribute", function () {
         cy.get("#subCounty").click({ force: true });
       
         cy.xpath('//*[@id="subCounty"]/input').click({force: true,multiple: true,});
@@ -45,11 +45,11 @@ describe("DWHCT", function () {
         //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #sub-county').should('include.text', 'Kasarani');
     
      
-      cy.xpath('//*[@id="subCounty"]/div[2]/div[1]/span').click({
+      cy.xpath('//*[@id="subCounty"]/div[2]/div[12]/span').click({
         force: true,
         multiple: true,
      });
-      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "KISUMU CENTRAL");
+      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "LANGATA");
       //remove KASARANI
       //cy.xpath('//*[@id="sub-county"]/a/i').click({force:true,multiple:true})
       // cy.get('#sub-county > a').type("Kasarani")
@@ -57,18 +57,18 @@ describe("DWHCT", function () {
       // .should("have.text", "Kasarani");
     });
   
-    it("Select Kisumu County Hospital facility and validate its attribute", function () {
+    it("Select Karen Health Centre facility and validate its attribute", function () {
         cy.get("#facility").click({ force: true });
        
         cy.xpath('//*[@id="facility"]/input').click({ force: true, multiple: true });
 
-        cy.xpath('//*[@id="facility"]/div[2]/div[5]/span').click({
+        cy.xpath('//*[@id="facility"]/div[2]/div[2]/span').click({
        force: true,
        multiple: true,
        });
-  
-  
-      cy.xpath('//*[@id="facility"]/a').should('include.text','Kisumu County Hospital' );
+
+
+      cy.xpath('//*[@id="facility"]/a').should('include.text','Karen Health Centre' );
   
       //remove USAID Fahari ya Jamii
       //cy.xpath('//*[@id="facility"]/a/i').click({force:true,multiple:true})
@@ -79,7 +79,7 @@ describe("DWHCT", function () {
     });
 
        
-    it("Select CIHEB ENTRENCH partner and validate its attribute", function () {
+    it("Select LVCT PRISONS partner and validate its attribute", function () {
       cy.get("#partner").click({ force: true });
      
       cy.xpath('//*[@id="partner"]/input').click({ force: true, multiple: true });
@@ -89,13 +89,13 @@ describe("DWHCT", function () {
         //force:true,
        // multiple:true
       //});
-       cy.xpath('//*[@id="partner"]/div[2]/div[1]/span').click({
+       cy.xpath('//*[@id="partner"]/div[2]/div[3]/span').click({
        force: true,
        multiple: true,
        });
   
   
-      cy.xpath('//*[@id="partner"]/a').should('include.text','CIHEB ENTRENCH' );
+      cy.xpath('//*[@id="partner"]/a').should('include.text','LVCT PRISONS' );
   
       //remove USAID Fahari ya Jamii
       //cy.xpath('//*[@id="facility"]/a/i').click({force:true,multiple:true})
@@ -105,7 +105,7 @@ describe("DWHCT", function () {
       // .should("have.text", "USAID Fahari ya Jamii");
     });
   
-    it("Select No Agency agency and validate its attribute", function () {
+    it("Select NO AGENCY agency and validate its attribute", function () {
       cy.get("#agency").click({ force: true });
      
       cy.xpath('//*[@id="agency"]/input').click({ force: true, multiple: true });
@@ -115,11 +115,64 @@ describe("DWHCT", function () {
         force: true,
         multiple: true,
     })
-        cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
+        cy.get(':nth-child(4) > :nth-child(6) > .form-group > .field > .ui > input').then(elem=>{
    
             elem.val('Jun 2022 - Jun 2022')
     
           })
      });
+
+     it("Select Female gender and validate its attribute", function () {
+        cy.get("#gender").click({ force: true });
+    
+        cy.xpath('//*[@id="gender"]/input').click({ force: true, multiple: true });
+    
+        //selects CDC
+        cy.xpath('//*[@id="gender"]/div[2]/div[2]/span').click({
+          force: true,
+          multiple: true,
+        });
+    
+        cy.xpath('//*[@id="gender"]/a').eq(1).should("have.text", "Female");
+    
+        //remove Female
+        //cy.xpath('//*[@id="gender"]/a/i').click({force:true,multiple:true})
+    
+        // cy.get('#gender > a').type("Female")
+        // asserting the option selected
+        // .should("have.text", "Female");
+      });
+    
+      it("Select 15-19 age group and validate its attribute", function () {
+        cy.get("#datimAgeGroup").click({ force: true });
+    
+        cy.xpath('//*[@id="datimAgeGroup"]/input').click({
+          force: true,
+          multiple: true,
+        });
+    
+        //selects CDC
+    
+        cy.xpath('//*[@id="datimAgeGroup"]/div[2]/div[5]/span').click({
+          force: true,
+          force: true,
+    
+          multiple: true,
+        });
+    
+        cy.xpath('//*[@id="datimAgeGroup"]/a')
+          .eq(1)
+          .should("have.text", "15 to 19");
+    
+        //remove 20-24
+    
+        //cy.xpath('//*[@id="datimAgeGroup"]/a/i').click({force:true,multiple:true})
+    
+        // cy.get('#datimAgeGroup > a').type(20-24)
+    
+        // asserting the option selected
+    
+        // .should("have.text", 20-24);
+      });
 
   })
