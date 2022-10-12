@@ -1,7 +1,7 @@
 describe("DWHCT", function () {
     // test case
     it("Select NAIROBI county and validate its attribute", function () {
-      cy.visit("https://dwh.nascop.org/#/reporting-rates/hts");
+      cy.visit("https://dwh.nascop.org/#/reporting-rates/pkv");
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
@@ -35,7 +35,7 @@ describe("DWHCT", function () {
       //selects KASARANI
       //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #county').should('include.text', 'Kasarani');
   
-      it("Select WESTLANDS sub-county and validate its attribute", function () {
+      it("Select EMBAKASI sub-county and validate its attribute", function () {
         cy.get("#subCounty").click({ force: true });
       
         cy.xpath('//*[@id="subCounty"]/input').click({force: true,multiple: true,});
@@ -45,11 +45,11 @@ describe("DWHCT", function () {
         //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #sub-county').should('include.text', 'Kasarani');
     
      
-      cy.xpath('//*[@id="subCounty"]/div[2]/div[18]/span').click({
+      cy.xpath('//*[@id="subCounty"]/div[2]/div[3]/span').click({
         force: true,
         multiple: true,
      });
-      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "WESTLANDS");
+      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "EMBAKASI");
       //remove KASARANI
       //cy.xpath('//*[@id="sub-county"]/a/i').click({force:true,multiple:true})
       // cy.get('#sub-county > a').type("Kasarani")
@@ -68,7 +68,7 @@ describe("DWHCT", function () {
         //force:true,
        // multiple:true
       //});
-       cy.xpath('//*[@id="partner"]/div[2]/div[3]/span').click({
+       cy.xpath('//*[@id="partner"]/div[2]/div/span').click({
        force: true,
        multiple: true,
        });
@@ -100,16 +100,11 @@ describe("DWHCT", function () {
         // cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').click({force:true});
    
          cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
-   
            elem.val('Jun 2022 - Jun 2022')
-   
          })
-   
-        
-   
        })
-   
-      
+
+    
      // cy.get(':nth-child(4) > :nth-child(4) > .form-group > #agency').should('include.text','AHF');
   
       //remove AHF
