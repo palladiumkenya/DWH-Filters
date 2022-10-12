@@ -93,21 +93,27 @@ describe("DWHCT", function () {
       cy.xpath('//*[@id="agency"]/div[2]/div[1]/span').click({
         force: true,
         multiple: true,
+    })
+        cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
+   
+            elem.val('Jun 2022 - Jun 2022')
+    
+          })
      });
 
-     it("Input the reporting rate period", function(){
+    // it("Select Period Input the reporting rate period and validate its attribute", function(){
 
         // cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').click({force:true});
    
-         cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
+        // cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
    
-           elem.val('Jun 2022 - Jun 2022')
+        //   elem.val('Jun 2022 - Jun 2022')
    
-         })
+      //   })
    
         
    
-       })
+      // })
    
       
      // cy.get(':nth-child(4) > :nth-child(4) > .form-group > #agency').should('include.text','AHF');
@@ -118,5 +124,5 @@ describe("DWHCT", function () {
       // cy.get('#agency > a').type("AHF")
       // asserting the option selected
       // .should("have.text", "AHF");
-    })
+    //})
   })
