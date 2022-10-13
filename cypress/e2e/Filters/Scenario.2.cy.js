@@ -4,7 +4,7 @@ cy.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 describe("DWHTest", function () {
-  const dwnascop_url = "https://dwhtest.kenyahmis.org/#/";
+  const dwnascop_url = "https://dwh.nascop.org/#/";
 
   // test case
   it("Select NAIROBI county and validate its attribute", function () {
@@ -219,9 +219,10 @@ describe("DWHTest", function () {
       `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1 and EligibleVL=1`
     ).then((result) => {
       cy.log(result);
-      cy.xpath(
+      cy.get(':nth-child(5) > :nth-child(1) > .primary-card > .primary-card-body > .primary-card-body-text').should('have.text',result.toString());
+      /*cy.xpath(
         '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[2]/div/div/p'
-      ).should("have.text", result);
+      ).should("have.text", result); */
     });
     //.should("eq", "1089199");
   });
@@ -237,4 +238,4 @@ describe("DWHTest", function () {
     );
     //.should("eq", "1089199");
   });
-
+ 

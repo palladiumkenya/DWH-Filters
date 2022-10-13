@@ -119,6 +119,13 @@ describe("DWHCT", function () {
       // .should("have.text", "AHF");
     });
   
+    it("Input the reporting rate period", function(){
+     // cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').click({force:true});
+      cy.get(':nth-child(4) > :nth-child(5) > .form-group > .field > .ui > input').then(elem=>{
+        elem.val('Jun 2022 - Jun 2022')
+      })
+      
+    })
     
     
   })
