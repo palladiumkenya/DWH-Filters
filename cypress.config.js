@@ -17,7 +17,7 @@ module.exports = defineConfig({
           database: "",
           encrypt: true,
           rowCollectionOnRequestCompletion: true,
-          port: 56230,
+          port: '',
           timeout:70000
           // Default Port
         },
