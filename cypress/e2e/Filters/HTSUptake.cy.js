@@ -35,7 +35,7 @@ describe("DWHCT", function () {
       //selects KASARANI
       //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #county').should('include.text', 'Kasarani');
   
-      it("Select LANGATA sub-county and validate its attribute", function () {
+      it("Select WESTLANDS sub-county and validate its attribute", function () {
         cy.get("#subCounty").click({ force: true });
       
         cy.xpath('//*[@id="subCounty"]/input').click({force: true,multiple: true,});
@@ -45,11 +45,11 @@ describe("DWHCT", function () {
         //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #sub-county').should('include.text', 'Kasarani');
     
      
-      cy.xpath('//*[@id="subCounty"]/div[2]/div[12]/span').click({
+      cy.xpath('//*[@id="subCounty"]/div[2]/div[18]/span').click({
         force: true,
         multiple: true,
      });
-      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "LANGATA");
+      cy.xpath('//*[@id="subCounty"]/a').eq(1).should("have.text", "WESTLANDS");
       //remove KASARANI
       //cy.xpath('//*[@id="sub-county"]/a/i').click({force:true,multiple:true})
       // cy.get('#sub-county > a').type("Kasarani")
@@ -57,18 +57,18 @@ describe("DWHCT", function () {
       // .should("have.text", "Kasarani");
     });
   
-    it("Select Karen Health Centre facility and validate its attribute", function () {
+    it("Select Westlands Health Centre facility and validate its attribute", function () {
         cy.get("#facility").click({ force: true });
        
         cy.xpath('//*[@id="facility"]/input').click({ force: true, multiple: true });
 
-        cy.xpath('//*[@id="facility"]/div[2]/div[2]/span').click({
+        cy.xpath('//*[@id="facility"]/div[2]/div[12]/span').click({
        force: true,
        multiple: true,
        });
 
 
-      cy.xpath('//*[@id="facility"]/a').should('include.text','Karen Health Centre' );
+      cy.xpath('//*[@id="facility"]/a').eq(1).should('have.text','Westlands Health Centre' );
   
       //remove USAID Fahari ya Jamii
       //cy.xpath('//*[@id="facility"]/a/i').click({force:true,multiple:true})
@@ -89,7 +89,7 @@ describe("DWHCT", function () {
         //force:true,
        // multiple:true
       //});
-       cy.xpath('//*[@id="partner"]/div[2]/div[1]/span').click({
+       cy.xpath('//*[@id="partner"]/div[2]/div[3]/span').click({
        force: true,
        multiple: true,
        });
