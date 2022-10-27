@@ -2,6 +2,7 @@ describe("DWHCT", function () {
     // test case
     it("Select NAIROBI county and validate its attribute", function () {
       cy.visit("https://dwh.nascop.org/#/hiv-testing/linkage");
+      
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
