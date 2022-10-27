@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/chesterosoronyas/DWH-Filters#readme",
   "devDependencies": {
-    "cypress": "^10.9.0",
+    "cypress": "^10.10.0",
     "cypress-sql-server": "^1.0.0",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.0.3",
+    "mysql2": "^2.3.3"
   }
 }
