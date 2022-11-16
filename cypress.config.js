@@ -6,7 +6,7 @@ const process=require('process');
 dotenv.config({path:".env.local"});
 
  connection=mysql.createConnection ({
-  host:process.env.E2E_DB_HOST,
+  
   host: process.env.E2E_DB_HOST,
   port: process.env.E2E_DB_PORT ,
   user: process.env.E2E_DB_USER,
