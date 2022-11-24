@@ -14,14 +14,14 @@ describe ("CareTreatmentReporingRates", ()=>{
         });
 
         cy.
-        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/consistencyreportingbycountypartner/ct?reportingType=county&county[]=NAIROBI&fromDate=Sep+2022&period=2022,8'})
+        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/consistencyreportingbycountypartner/ct?reportingType=county&county[]=NAIROBI&fromDate=Oct+2022&period=2022,9'})
         .then(result=> {
           cy.log(result.body.NAIROBI);
 
           cy.get('.consistency-reporting-figure').should('have.text',result.body.NAIROBI);
         })
         cy.
-        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/ct?county[]=NAIROBI&fromDate=Sep+2022&period=2022,9'})
+        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/ct?county[]=NAIROBI&fromDate=Oct+2022&period=2022,10'})
         .then(response=> {
           const result=response.body;
           cy.log(result[0].recency);
@@ -49,7 +49,7 @@ describe ("CareTreatmentReporingRates", ()=>{
       multiple: true,
    });
    cy.
-   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/ct?county[]=NAIROBI&subCounty[]=KASARANI&fromDate=Sep+2022&period=2022,9'})
+   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/ct?county[]=NAIROBI&subCounty[]=KASARANI&fromDate=Oct+2022&period=2022,10'})
    .then(response=> {
      const result=response.body;
      cy.log(result[0].recency);
