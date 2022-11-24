@@ -14,14 +14,14 @@ describe ("HTSTreatmentReporingRates", ()=>{
         });
 
         cy.
-        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/consistencyreportingbycountypartner/hts?reportingType=county&county[]=NAIROBI&fromDate=Sep+2022&period=2022,8'})
+        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/consistencyreportingbycountypartner/hts?reportingType=county&county[]=NAIROBI&fromDate=Oct+2022&period=2022,9'})
         .then(result=> {
           cy.log(result.body.NAIROBI);
 
           cy.get('.consistency-reporting-figure').should('have.text',result.body.NAIROBI);
         })
         cy.
-        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/hts?county[]=NAIROBI&fromDate=Sep+2022&period=2022,9'})
+        request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/hts?county[]=NAIROBI&fromDate=Oct+2022&period=2022,9'})
         .then(response=> {
           const result=response.body;
           cy.log(result[0].recency);
@@ -49,7 +49,7 @@ describe ("HTSTreatmentReporingRates", ()=>{
       multiple: true,
    });
    cy.
-   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/hts?county[]=NAIROBI&subCounty[]=KASARANI&fromDate=Sep+2022&period=2022,9'})
+   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbycounty/hts?county[]=NAIROBI&subCounty[]=KASARANI&fromDate=Oct+2022&period=2022,10'})
    .then(response=> {
      const result=response.body;
      cy.log(result[0].recency);
@@ -86,7 +86,7 @@ describe ("HTSTreatmentReporingRates", ()=>{
    cy.wait(10000);
 
     cy.
-   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbypartner/hts?partner[]=CIHEB+CONNECT&fromDate=Sep+2022&period=2022,9'})
+   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recencyreportingbypartner/hts?partner[]=CIHEB+CONNECT&fromDate=Oct+2022&period=2022,10'})
    .then(response=> {
      const result=response.body;
      cy.log(result[0].recency);
@@ -115,7 +115,7 @@ describe ("HTSTreatmentReporingRates", ()=>{
     
     cy.wait(10000);
     cy.
-   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/expected/hts?agency[]=CDC&fromDate=Oct+2022&period=2022,8'})
+   request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/expected/hts?agency[]=CDC&fromDate=Oct+2022&period=2022,9'})
    .then(response=> {
      const result=response.body;
      cy.log(result.expected);
@@ -126,7 +126,7 @@ describe ("HTSTreatmentReporingRates", ()=>{
 
    })
    cy.wait(10000);
-   cy.request({method:'GET',url:'https://dwh.nascop.org/api/manifests/consistency/hts?agency[]=CDC&fromDate=Sep+2022&period=2022,8'}).then(
+   cy.request({method:'GET',url:'https://dwh.nascop.org/api/manifests/consistency/hts?agency[]=CDC&fromDate=Oct+2022&period=2022,9'}).then(
     response=>{
         const result=response.body;
         cy.get('.consistency-reporting-figure').should('have.text',result.consistency);
@@ -134,7 +134,7 @@ describe ("HTSTreatmentReporingRates", ()=>{
 
     cy.wait(10000);
     cy.
-    request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recency/hts?agency[]=CDC&fromDate=Sep+2022&period=2022,9'})
+    request ({method:'GET', url: 'https://dwh.nascop.org/api/manifests/recency/hts?agency[]=CDC&fromDate=Oct+2022&period=2022,9'})
     .then(response=> {
       const result=response.body;
       cy.log(result.recency);
