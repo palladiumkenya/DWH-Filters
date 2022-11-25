@@ -20,6 +20,8 @@
   "devDependencies": {
     "cypress": "^10.11.0",
     "cypress-sql-server": "^1.0.0",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.0.3",
+    "mysql2": "^2.3.3"
   }
 }

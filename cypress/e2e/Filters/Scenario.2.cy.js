@@ -29,6 +29,8 @@ describe("DWHTest", function () {
     // asserting the option selected
     // .should("have.text", "Nairobi");
   });
+ 
+  
 
   it("Select KASARANI sub-county and validate its attribute", function () {
     cy.get("#subCounty").click({ force: true });
