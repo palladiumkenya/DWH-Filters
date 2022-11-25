@@ -1,7 +1,7 @@
 describe("DWHCT", function () {
     // test case
     it("Select NAIROBI county and validate its attribute", function () {
-      cy.visit("https://dwh.nascop.org/#/hiv-treatment/artOptimization/children");
+      cy.visit("https://dwh.nascop.org/#/hiv-treatment/adverseEvent/children");
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
@@ -158,18 +158,5 @@ describe("DWHCT", function () {
        
       });
 
-      it("Select LIVE BIRTH pregnancy and validate its attribute", function () {
-        cy.get("#latestPregnancy").click({ force: true });
-    
-        cy.xpath('//*[@id="latestPregnancy"]/input').click({ force: true, multiple: true });
-    
-        //selects CDC
-        cy.xpath('//*[@id="latestPregnancy"]/div[2]/div[1]/span').click({
-          force: true,
-          multiple: true,
-        });
-    
-        cy.xpath('//*[@id="latestPregnancy"]/a').eq(1).should("have.text", "LIVE BIRTH");
-    
-    });
+      
   })
