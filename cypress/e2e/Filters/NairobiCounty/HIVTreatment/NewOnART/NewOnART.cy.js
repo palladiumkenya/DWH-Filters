@@ -1,7 +1,7 @@
 describe("DWHCT", function () {
     // test case
     it("Select NAIROBI county and validate its attribute", function () {
-      cy.visit("https://dwh.nascop.org/#/hiv-treatment/artOptimization/children");
+      cy.visit("https://dwh.nascop.org/#/hiv-treatment/newlyOnArt");
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
@@ -114,10 +114,10 @@ describe("DWHCT", function () {
      });
      cy.xpath('//*[@id="agency"]/a').should('include.text','AHF' );
    
-     //cy.get(':nth-child(4) > :nth-child(6) > .form-group > .field > .ui > input').then(elem=>{
+     cy.get(':nth-child(4) > :nth-child(6) > .form-group > .field > .ui > input').then(elem=>{
    
-        //elem.val('Jun 2022 - Jun 2022')
-   // });
+        elem.val('Jun 2022 - Jun 2022')
+    });
 });
   
     it("Select Female gender and validate its attribute", function () {
@@ -155,21 +155,14 @@ describe("DWHCT", function () {
           .eq(1)
           .should("have.text", "20 to 24");
     
-       
+        //remove 20-24
+    
+        //cy.xpath('//*[@id="datimAgeGroup"]/a/i').click({force:true,multiple:true})
+    
+        // cy.get('#datimAgeGroup > a').type(20-24)
+    
+        // asserting the option selected
+    
+        // .should("have.text", 20-24);
       });
-
-      it("Select LIVE BIRTH pregnancy and validate its attribute", function () {
-        cy.get("#latestPregnancy").click({ force: true });
-    
-        cy.xpath('//*[@id="latestPregnancy"]/input').click({ force: true, multiple: true });
-    
-        //selects CDC
-        cy.xpath('//*[@id="latestPregnancy"]/div[2]/div[1]/span').click({
-          force: true,
-          multiple: true,
-        });
-    
-        cy.xpath('//*[@id="latestPregnancy"]/a').eq(1).should("have.text", "LIVE BIRTH");
-    
-    });
   })
