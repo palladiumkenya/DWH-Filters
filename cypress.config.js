@@ -50,7 +50,7 @@ module.exports = defineConfig({
         password: "",
         server: "",
         options: {
-          database: "",
+          database: "PortalDev",
           encrypt: true,
           rowCollectionOnRequestCompletion: true,
           port: '1433',
