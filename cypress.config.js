@@ -46,9 +46,9 @@ module.exports = defineConfig({
     },
     env: {
       db: {
-        userName: "",
-        password: "",
-        server: "",
+      userName: process.env.MSSQL_DB_USER,
+        password: process.env.MSSQL_DB_PASS,
+        server: process.env.MSSQL_DB_SERVER,
         options: {
           database: "PortalDev",
           encrypt: true,
