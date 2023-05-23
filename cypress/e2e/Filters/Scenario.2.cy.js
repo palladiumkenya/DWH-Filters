@@ -15,7 +15,7 @@ describe("DWHTest", function () {
     cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
 
     //selects NAIROBI
-    cy.xpath('//*[@id="county"]/div[2]/div[25]/span').click({
+    cy.xpath('//*[@id="county"]/div[2]/div[29]/span').click({
       force: true,
       multiple: true,
     });
@@ -43,7 +43,7 @@ describe("DWHTest", function () {
 
     //selects KASARANI
 
-    cy.xpath('//*[@id="subCounty"]/div[2]/div[9]/span').click({
+    cy.xpath('//*[@id="subCounty"]/div[2]/div[10]/span').click({
       force: true,
 
       multiple: true,
@@ -94,7 +94,7 @@ describe("DWHTest", function () {
     cy.xpath('//*[@id="partner"]/input').click({ force: true, multiple: true });
 
     //selects USAID Fahari ya Jamii
-    cy.xpath('//*[@id="partner"]/div[2]/div[3]/span').click({
+    cy.xpath('//*[@id="partner"]/div[2]/div[5]/span').click({
       force: true,
       multiple: true,
     });
@@ -213,15 +213,13 @@ describe("DWHTest", function () {
       multiple: true,
     });
   });
- 
-});
-
   it("Validate the Eligible of VL from the model", function () {
     cy.sqlServer(
-      `select Count(*) from Fact_Trans_New_Cohort where ageLV < 120 and TXCurr=1 and EligibleVL=1`
+      `select  SUM([Eligible4VL]) from Linelist_FACTART where ISTxCurr > 0`
     ).then((result) => {
       cy.log(result);
-      cy.get(':nth-child(5) > :nth-child(1) > .primary-card > .primary-card-body > .primary-card-body-text').should('have.text',result.toString());
+      cy.get(':nth-child(2) > .primary-card > .primary-card-body > .primary-card-body-text')
+      .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       /*cy.xpath(
         '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[2]/div/div/p'
       ).should("have.text", result); */
@@ -230,14 +228,20 @@ describe("DWHTest", function () {
   });
 
   it("Validate the VALID viralload from the model", function () {
-    cy.sqlServer(`select SUM(VLDone)  from FACT_Trans_VL_OverallUptake`).then(
+    cy.sqlServer(`select SUM([Last12MonthVL]) from Linelist_FACTART where   ISTxCurr > 0`).then(
       (result) => {
         cy.log(result);
-        cy.xpath(
+       /* cy.xpath(
           '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[3]/div/div/p'
-        ).should("have.text", result);
+        ).should("have.text", result);*/
+        cy.get(':nth-child(3) > .primary-card > .primary-card-body > .primary-card-body-text')
+        .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       }
     );
     //.should("eq", "1089199");
   });
  
+ 
+});
+
+  
