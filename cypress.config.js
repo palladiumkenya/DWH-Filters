@@ -5,7 +5,7 @@ const mysql=require("mysql2");
 const process=require('process');
 dotenv.config({path:".env.local"});
 
- connection=mysql.createConnection ({
+/* connection=mysql.createConnection ({
   
   host: process.env.E2E_DB_HOST,
   port: process.env.E2E_DB_PORT ,
@@ -27,7 +27,7 @@ function queryTestDb(query){
       }
     })
   })
-}
+}*/
 
 
 
@@ -46,11 +46,11 @@ module.exports = defineConfig({
     },
     env: {
       db: {
-        userName: "",
-        password: "",
-        server: "",
+      userName: process.env.MSSQL_DB_USER,
+        password: process.env.MSSQL_DB_PASS,
+        server: process.env.MSSQL_DB_SERVER,
         options: {
-          database: "",
+          database: "REPORTING",
           encrypt: true,
           rowCollectionOnRequestCompletion: true,
           port: '1433',

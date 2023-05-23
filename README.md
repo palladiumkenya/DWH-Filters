@@ -11,7 +11,7 @@ DWH Filters
 * install the cypress
 
 ```sh 
-npm install cypress --save-de
+npm install cypress --save-dev
 
 ```
 * Run cypress
