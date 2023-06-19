@@ -235,7 +235,8 @@ describe("DWHTest", function () {
           '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[3]/div/div/p'
         ).should("have.text", result);*/
         cy.get(':nth-child(3) > .primary-card > .primary-card-body > .primary-card-body-text')
-        .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        );
       }
     );
     //.should("eq", "1089199");
