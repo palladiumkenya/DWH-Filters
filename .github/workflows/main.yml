@@ -2,6 +2,8 @@ name: Running dwh_filters testcases
 on:
   push:
     branches: [ prod ]
+  schedule:
+    - cron: '0 7 * * 5'
 jobs:
 
   build:
