@@ -1,0 +1,24 @@
+name: Running dwh_filters testcases
+on:
+  push:
+    branches: [ prod ]
+jobs:
+
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote connection
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.CICD_SECRET }}
+        port: ${{ secrets.PORT }}
+        script: |
+          sudo git config --global --add safe.directory /apps/github-workflows/dwh-filters      
+          cd /apps/github-workflows/dwh-filters
+          sudo git pull origin master
+          sudo git status
+          sudo npm install
+          sudo npm run cypress:open
