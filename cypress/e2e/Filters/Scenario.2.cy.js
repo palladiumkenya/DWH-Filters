@@ -4,7 +4,7 @@ cy.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 describe("DWHTest", function () {
-  const dwnascop_url = "https://dwh.nascop.org/#/";
+  const dwnascop_url = "https://dwhtest.kenyahmis.org/#/";
 
   // test case
   it("Select NAIROBI county and validate its attribute", function () {
@@ -15,7 +15,7 @@ describe("DWHTest", function () {
     cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
 
     //selects NAIROBI
-    cy.xpath('//*[@id="county"]/div[2]/div[29]/span').click({
+    cy.xpath('//*[@id="county"]/div[2]/div[28]/span').click({
       force: true,
       multiple: true,
     });
@@ -235,7 +235,8 @@ describe("DWHTest", function () {
           '//*[@id="root"]/div/div[2]/main/div[2]/div/div[5]/div[3]/div/div/p'
         ).should("have.text", result);*/
         cy.get(':nth-child(3) > .primary-card > .primary-card-body > .primary-card-body-text')
-        .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        .should("have.text", result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        );
       }
     );
     //.should("eq", "1089199");

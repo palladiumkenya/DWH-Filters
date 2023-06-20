@@ -1,13 +1,13 @@
 describe("DWHCT", function () {
     // test case
     it("Select NAIROBI county and validate its attribute", function () {
-      cy.visit("https://dwh.nascop.org/#/hiv-treatment/treatmentOutcomes/retention");
+      cy.visit("https://dwhtest.kenyahmis.org/#/hiv-treatment/treatmentOutcomes/retention");
       cy.get("#county").click({ force: true });
   
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
   
       //selects NAIROBI
-      cy.xpath('//*[@id="county"]/div[2]/div[25]/span').click({
+      cy.xpath('//*[@id="county"]/div[2]/div[28]/span').click({
         force: true,
         multiple: true,
       });
@@ -114,10 +114,14 @@ describe("DWHCT", function () {
      });
      cy.xpath('//*[@id="agency"]/a').should('include.text','AHF' );
    
-     cy.get(':nth-child(4) > :nth-child(6) > .form-group > .field > .ui > input').then(elem=>{
-   
-        elem.val('Jun 2022')
+     cy.get('.animated > [style="font-size: 0.78em;"] > :nth-child(6) > .form-group > .field > .ui > input').then(elem=>{
+      let dt=Date.now()
+      dt.setMonth
+      
+      
+        elem.val(dt.toLocalString('en-us',{month:'short',year:'numeric'}))
     });
+   
 });
   
     it("Select Female gender and validate its attribute", function () {

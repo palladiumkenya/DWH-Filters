@@ -7,7 +7,7 @@ describe("DWHCT", function () {
       cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
   
       //selects NAIROBI
-      cy.xpath('//*[@id="county"]/div[2]/div[25]/span')
+      cy.xpath('//*[@id="county"]/div[2]/div[29]/span')
       .click({force: true,multiple: true, });
        //cy.get(':nth-child(4) > :nth-child(1) > .form-group > #county').click()
        //.contains('Nairobi').click()

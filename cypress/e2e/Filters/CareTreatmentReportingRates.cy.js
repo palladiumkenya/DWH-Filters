@@ -8,7 +8,7 @@ describe ("CareTreatmentReporingRates", ()=>{
         cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
     
         //selects NAIROBI
-        cy.xpath('//*[@id="county"]/div[2]/div[26]/span').click({
+        cy.xpath('//*[@id="county"]/div[2]/div[29]/span').click({
           force: true,
           multiple: true,
         });

@@ -1,21 +1,21 @@
 
 
 describe("DWHCT", function () {
-    let query='select Count(TxCurr) from FACT_Trans_OTZEnrollments where '
-    let query2='select Count(*) from FACT_Trans_OTZEnrollments where OTZEnrollmentDate is not null'
-    let query3='select  Count(*) from FACT_Trans_OTZEnrollments where  lastVL is not null and  OTZEnrollmentDate is not null'
-    let query4='select  Count(*)  from FACT_Trans_OTZEnrollments where  Last12MVLResult IS NOT NULL and OTZEnrollmentDate is not null'
+    let query='select Count(*) from LineListOTZEligibilityAndEnrollments where '
+    let query2='select Sum(Enrolled) from AggregateOTZ where'
+    let query3='select Count(*) from LineListOTZ where FirstVL is not null'
+    let query4='select SUM(Last12MonthVL) as VLSuppression from LineListOTZ  where Last12MonthVLResults is not null'
 it("Select NAIROBI county and validate its model", function () {
 
     cy.visit("https://dwh.nascop.org/#/hiv-treatment/otz/otz_enrollment");
  
- 
+    cy.wait(300);
     cy.get("#county").click({ force: true });
 
     cy.xpath('//*[@id="county"]/input').click({ force: true, multiple: true });
-
+    
     //selects NAIROBI
-    cy.xpath('//*[@id="county"]/div[2]/div[25]/span').click({
+    cy.xpath('//*[@id="county"]/div[2]/div[29]/span').click({
       force: true,
       multiple: true,
     });
@@ -28,7 +28,7 @@ it("Select NAIROBI county and validate its model", function () {
       });
 
       cy.sqlServer(
-        query2 +` and County='NAIROBI' `
+        query2 +`  County='NAIROBI' `
       ).then((result) => {
         console.log(result[0]);
         cy.get(':nth-child(2) > .card-uploads-consistency-rates > .align-items-center > :nth-child(1) > .expected-uploads-text')
