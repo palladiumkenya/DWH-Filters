@@ -23,5 +23,5 @@ jobs:
           cd /apps/github-workflows/DWH-Filters
           sudo git pull origin master
           sudo git status
-          sudo npm install
+          sudo npm install --unsafe-perm=true --allow-root cypress
           sudo npm run cypress:open
