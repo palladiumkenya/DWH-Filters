@@ -19,8 +19,8 @@ jobs:
         port: ${{secrets.PORT }}
     
         script: |
-          sudo git config --global --add safe.directory /apps/github-workflows/dwh-filters      
-          cd /apps/github-workflows/dwh-filters
+          sudo git config --global --add safe.directory /apps/github-workflows/DWH-Filters      
+          cd /apps/github-workflows/DWH-Filters
           sudo git pull origin master
           sudo git status
           sudo npm install
