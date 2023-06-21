@@ -16,6 +16,7 @@ jobs:
         host: ${{ secrets.CICD_HOST }}
         username: ${{ secrets.CICD_USERNAME }}
         key: ${{ secrets.CICD_SECRET }}
+        port: ${{secrets.PORT }}
     
         script: |
           sudo git config --global --add safe.directory /apps/github-workflows/dwh-filters      
