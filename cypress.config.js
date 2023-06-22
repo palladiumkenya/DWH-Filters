@@ -38,6 +38,14 @@ module.exports = defineConfig({
       const tasks = sqlServer.loadDBPlugin(config.env.db);
       on("task",tasks)
       on('task',{queryDb:query=>{return queryTestDb(query)},});
+      on('before:browser:launch',(browser={},launchOptions) => {
+        if(browser.family== 'chromium'){
+          launchOptions.args.push('--disable-gpu')
+        } else if(browser.family== 'electron'){
+          launchOptions.args.push('--disable-gpu')
+        }
+        return launchOptions;
+      });
     
      
 
